@@ -1,14 +1,12 @@
-"use client";
-import { MainProvider } from "ecommerce-mxtech";
-import { useInformation } from "./useInformation";
-import { primaryColor } from "@/data";
+'use client';
+import { MainProvider } from 'ecommerce-mxtech';
+import { dataSite, primaryColor } from '@/data';
 
 const Provider = ({ children }) => {
-  const { dataSite } = useInformation();
   const products = dataSite.products.map((product) => {
     return {
       ...product,
-      content: product.content.split(", "),
+      content: product.content.split(', '),
       product_type: product.product_type?.toLowerCase(),
     };
   });
@@ -20,7 +18,7 @@ const Provider = ({ children }) => {
       address={dataSite.address}
       email={dataSite.email}
       phoneNumber={dataSite.telephone}
-      locale={"en"}
+      locale={'en'}
       colorPrimary={primaryColor}
     >
       {children}

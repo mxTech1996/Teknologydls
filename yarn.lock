@@ -1136,10 +1136,10 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
-ecommerce-mxtech@^0.0.60:
-  version "0.0.60"
-  resolved "https://registry.npmjs.org/ecommerce-mxtech/-/ecommerce-mxtech-0.0.60.tgz"
-  integrity sha512-QG28m6mDGGLanjbQZVBb17yoa7uZm3EEBsdMrkfNVM1S3ti1mcPwRirvmkXq0/0lNUsEr1IeGK8kTccTmh8tsA==
+ecommerce-mxtech@^0.0.77:
+  version "0.0.77"
+  resolved "https://registry.npmjs.org/ecommerce-mxtech/-/ecommerce-mxtech-0.0.77.tgz"
+  integrity sha512-MKSEpn9CBgzrmihMlx0PGyPDGWK+LwwogBn2JMHrNifQHHn0+2uBnDXUS6kFgMoijEOd00tO7IFgOTUUqyH7UQ==
   dependencies:
     "@ant-design/cssinjs" "^1.20.0"
     "@hookform/resolvers" "3.4.0"
@@ -1628,6 +1628,15 @@ fraction.js@^4.3.7:
   version "4.3.7"
   resolved "https://registry.npmjs.org/fraction.js/-/fraction.js-4.3.7.tgz"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
+
+framer-motion@^12.12.2:
+  version "12.12.2"
+  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-12.12.2.tgz"
+  integrity sha512-qCszZCiGWkilL40E3VuhIJJC/CS3SIBl2IHyGK8FU30nOUhTmhBNWPrNFyozAWH/bXxwzi19vJHIGVdALF0LCg==
+  dependencies:
+    motion-dom "^12.12.1"
+    motion-utils "^12.12.1"
+    tslib "^2.4.0"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -2339,6 +2348,18 @@ minimist@^1.2.0, minimist@^1.2.6:
   version "7.1.2"
   resolved "https://registry.npmjs.org/minipass/-/minipass-7.1.2.tgz"
   integrity sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==
+
+motion-dom@^12.12.1:
+  version "12.12.1"
+  resolved "https://registry.npmjs.org/motion-dom/-/motion-dom-12.12.1.tgz"
+  integrity sha512-GXq/uUbZBEiFFE+K1Z/sxdPdadMdfJ/jmBALDfIuHGi0NmtealLOfH9FqT+6aNPgVx8ilq0DtYmyQlo6Uj9LKQ==
+  dependencies:
+    motion-utils "^12.12.1"
+
+motion-utils@^12.12.1:
+  version "12.12.1"
+  resolved "https://registry.npmjs.org/motion-utils/-/motion-utils-12.12.1.tgz"
+  integrity sha512-f9qiqUHm7hWSLlNW8gS9pisnsN7CRFRD58vNjptKdsqFLpkVnX00TNeD6Q0d27V9KzT7ySFyK1TZ/DShfVOv6w==
 
 ms@^2.1.1, ms@2.1.2:
   version "2.1.2"
@@ -3074,7 +3095,7 @@ react-alert@^7.0.3:
     prop-types "^15.7.2"
     react-transition-group "^4.4.1"
 
-react-dom@*, "react-dom@^16.8.0 || ^17 || ^18", "react-dom@^16.8.1 || ^17", react-dom@^18, react-dom@^18.0.0, react-dom@^18.2.0, react-dom@>=16.0.0, react-dom@>=16.11.0, react-dom@>=16.6.0, react-dom@>=16.9.0, react-dom@18.2.0:
+react-dom@*, "react-dom@^16.8.0 || ^17 || ^18", "react-dom@^16.8.1 || ^17", react-dom@^18, react-dom@^18.0.0, "react-dom@^18.0.0 || ^19.0.0", react-dom@^18.2.0, react-dom@>=16.0.0, react-dom@>=16.11.0, react-dom@>=16.6.0, react-dom@>=16.9.0, react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -3133,7 +3154,7 @@ react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@*, "react@^16.2.0 || ^17", "react@^16.6.0 || 17 || 18", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.1 || ^17", react@^18, react@^18.0.0, react@^18.2.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.0.0, react@>=16.11.0, react@>=16.6.0, react@>=16.9.0, react@18.2.0:
+react@*, "react@^16.2.0 || ^17", "react@^16.6.0 || 17 || 18", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.1 || ^17", react@^18, react@^18.0.0, "react@^18.0.0 || ^19.0.0", react@^18.2.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.0.0, react@>=16.11.0, react@>=16.6.0, react@>=16.9.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
