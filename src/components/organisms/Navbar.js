@@ -50,17 +50,13 @@ const NavBar = ({ data }) => {
             <NavLink href='#about'>About</NavLink>
             <NavLink href='#testimonials'>Testimonials</NavLink>
             <NavLink href='#info'>Info</NavLink>
-            <a
-              href={`tel:${data.telephone}`}
-              className='ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 transition-colors'
-            >
-              <FiPhone className='mr-2 h-4 w-4' /> {data.telephone}
-            </a>
+            <NavLink href='/more-information'>Contact us</NavLink>
+
             <Link
-              href='#contact' // o una página de contacto / cotización
+              href='/my-cart' // o una página de contacto / cotización
               className='ml-2 inline-flex items-center px-4 py-2 border border-orange-500 text-sm font-medium rounded-md text-orange-500 bg-transparent hover:bg-orange-500 hover:text-white transition-colors'
             >
-              Get a Quote
+              Go to cart
             </Link>
           </div>
 

@@ -1,6 +1,7 @@
 // components/ProductSection.jsx
 'use client';
 
+import { useCart } from 'ecommerce-mxtech';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -51,6 +52,8 @@ const ProductSection = ({ data }) => {
     },
   };
 
+  const { handleAddOrRemoveProduct, validateProductInCart } = useCart();
+
   return (
     <motion.section
       id='products'
@@ -76,60 +79,70 @@ const ProductSection = ({ data }) => {
 
         {/* Products Grid */}
         <div className='grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8'>
-          {products.map((product) => (
-            <motion.div
-              key={product.id}
-              className='group relative bg-gray-800 rounded-xl shadow-2xl overflow-hidden flex flex-col border border-gray-700 hover:shadow-orange-500/30 hover:ring-1 hover:ring-orange-500 transition-all duration-300'
-              variants={cardVariants}
-            >
-              <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden xl:aspect-w-7 xl:aspect-h-8 relative'>
-                {/* Usamos un div para el aspect ratio y next/image con layout="fill" */}
-                <div className='pt-[100%] sm:pt-[85%]'>
-                  {' '}
-                  {/* Ajusta el padding-top para el aspect ratio deseado */}
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    layout='fill'
-                    objectFit='cover'
-                    className='absolute inset-0 h-full w-full group-hover:scale-105 transition-transform duration-500'
-                  />
+          {products.map((product) => {
+            const isInCart = validateProductInCart(product.id);
+            const handleClick = () => {
+              handleAddOrRemoveProduct(product.id);
+            };
+
+            return (
+              <motion.div
+                key={product.id}
+                className='group relative bg-gray-800 rounded-xl shadow-2xl overflow-hidden flex flex-col border border-gray-700 hover:shadow-orange-500/30 hover:ring-1 hover:ring-orange-500 transition-all duration-300'
+                variants={cardVariants}
+              >
+                <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden xl:aspect-w-7 xl:aspect-h-8 relative'>
+                  {/* Usamos un div para el aspect ratio y next/image con layout="fill" */}
+                  <div className='pt-[100%] sm:pt-[85%]'>
+                    {' '}
+                    {/* Ajusta el padding-top para el aspect ratio deseado */}
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      layout='fill'
+                      objectFit='cover'
+                      className='absolute inset-0 h-full w-full group-hover:scale-105 transition-transform duration-500'
+                    />
+                  </div>
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity'></div>
                 </div>
-                <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity'></div>
-              </div>
-              <div className='p-4 sm:p-6 flex flex-col flex-grow'>
-                <h3 className='text-lg sm:text-xl font-semibold text-white'>
-                  {product.name}
-                </h3>
-                <p className='mt-2 text-sm text-gray-400 flex-grow min-h-[60px]'>
-                  {' '}
-                  {/* min-h para alinear botones */}
-                  {truncateDescription(product.description)}
-                </p>
-                <div className='mt-4 flex items-center justify-between'>
-                  <p className='text-xl sm:text-2xl font-bold text-orange-500'>
-                    ${parseFloat(product.price).toFixed(2)}
+                <div className='p-4 sm:p-6 flex flex-col flex-grow'>
+                  <h3 className='text-lg sm:text-xl font-semibold text-white'>
+                    {product.name}
+                  </h3>
+                  <p className='mt-2 text-sm text-gray-400 flex-grow min-h-[60px]'>
+                    {' '}
+                    {/* min-h para alinear botones */}
+                    {truncateDescription(product.description)}
                   </p>
-                  {product.stock > 0 ? (
-                    <span className='text-xs font-medium text-green-400 bg-green-900/50 px-2.5 py-1 rounded-full border border-green-700'>
-                      In Stock
-                    </span>
-                  ) : (
-                    <span className='text-xs font-medium text-red-400 bg-red-900/50 px-2.5 py-1 rounded-full border border-red-700'>
-                      Out of Stock
-                    </span>
-                  )}
+                  <div className='mt-4 flex items-center justify-between'>
+                    <p className='text-xl sm:text-2xl font-bold text-orange-500'>
+                      ${parseFloat(product.price).toFixed(2)}
+                    </p>
+                    {product.stock > 0 ? (
+                      <span className='text-xs font-medium text-green-400 bg-green-900/50 px-2.5 py-1 rounded-full border border-green-700'>
+                        In Stock
+                      </span>
+                    ) : (
+                      <span className='text-xs font-medium text-red-400 bg-red-900/50 px-2.5 py-1 rounded-full border border-red-700'>
+                        Out of Stock
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    onClick={handleClick}
+                    className={`mt-6 w-full inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white ${
+                      isInCart
+                        ? 'bg-red-500 hover:bg-red-600'
+                        : 'bg-orange-500 hover:bg-orange-600'
+                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-orange-500 transition-colors`}
+                  >
+                    {isInCart ? 'Remove from Cart' : 'Add to Cart'}
+                  </button>
                 </div>
-                <Link
-                  href={`/products/${product.id}`} // Ajusta la ruta si es necesario
-                  className='mt-6 w-full inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-orange-500 transition-colors'
-                >
-                  View Details
-                  <FiArrowRight className='ml-2 w-4 h-4' />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </motion.section>

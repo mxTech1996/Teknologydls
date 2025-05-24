@@ -70,8 +70,8 @@ const ServicesSection = ({ data }) => {
             <span className='text-orange-500'>IT Services</span>
           </h2>
           <p className='mt-4 text-lg text-gray-400 max-w-2xl mx-auto'>
-            Tailored solutions to meet your business&#39;s unique technology needs
-            and drive success.
+            Tailored solutions to meet your business&#39;s unique technology
+            needs and drive success.
           </p>
         </motion.div>
 
@@ -106,7 +106,7 @@ const ServicesSection = ({ data }) => {
                   {truncateText(service.description, 120)}{' '}
                   {/* Truncate if needed */}
                 </p>
-                <Link
+                {/* <Link
                   href={`/services/${service.title
                     .toLowerCase()
                     .replace(/\s+/g, '-')}`} // Example link structure
@@ -114,7 +114,7 @@ const ServicesSection = ({ data }) => {
                 >
                   Learn More
                   <FiArrowRight className='ml-2 w-5 h-5' />
-                </Link>
+                </Link> */}
               </div>
             </motion.div>
           ))}
