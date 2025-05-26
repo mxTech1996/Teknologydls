@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { FiMenu, FiX, FiPhone } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const NavLink = ({ href, children }) => (
   <Link
